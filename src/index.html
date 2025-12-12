@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+    <link href="./input.css" rel="stylesheet">
+    <link href="./style.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+     integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" 
+     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>ABB</title>
+</head>
+<body>
+    
+     <!--Menu Bar-->
+                
+    <header class="flex shadow-md py-4 px-4 sm:px-10 bg-white min-h-[70px] tracking-wide relative z-50 justify-between">
+      <div class="logo flex">
+        <img src="img/logo.png" alt="Logo" />
+         <h1 class="text-center text-3xl font-bold mx-auto text-blue-700 ">ABB</h1> 
+      </div>
+      <div class="menu">
+        <ul class=" flex text-3xs gap-5 mx-20 font-bold align-middle">
+          <li class=" hover:text-blue-700 "><a href="#">Fərdi</a></li>
+          <li class="hover:text-blue-700"><a href="#">Biznes</a></li>
+          <li class="hover:text-blue-700"><a href="#">Haqqımızda</a></li>
+          <li class="hover:text-blue-700"><a href="#">İnvestorlarla əlaqə</a></li>
+        </ul>
+      </div>
+
+      <div class="search flex">
+        <i class="fa-solid fa-magnifying-glass text-gray-500 text-2xl "></i>
+        <h1 class="text-gray-500 text-2xl mx-4">AZ</h1>
+        <i class="fa-solid fa-phone text-gray-500 text-xl"></i>
+        <p class="text-gray-500 text-xl">937</p>
+        <button class="bg-blue-700 hover:bg-blue-800 text-white w-40 h-10 text-sm rounded-xl mx-4 font-bold">
+          <i class="fa-solid fa-location-dot text-white"></i> Xidmət şəbəkəsi
+        </button>
+      </div>
+    </header>
+         
+    <main>
+      <!--Main Part-->
+        <div class="container">
+            <div class="head">
+             <h1>İndi Hesabla</h1>
+            </div>
+            <header>
+              <nav class="tabs">
+                <button class="tab" data-tab="kredit">Kredit</button>
+                <button class="tab" data-tab="deposit">Depozit</button>
+                <button class="tab active" data-tab="avto">Avtomobil krediti</button>
+                <button class="tab" data-tab="ipoteka">İpoteka</button>
+              </nav>
+            </header>
+
+            <div class="layout">
+              <div class="controls">
+              <!-- il, ay-->
+              <div class="seg">
+                <div style="display:flex;gap:8px;align-items:center">
+                  <button class="btn small">Hər ay</button>
+                  <button class="btn small">Hər il</button>
+                </div>
+              <div style="flex:1"></div>
+              <div class="currency">
+                 <button class="active" id="cur-azn">AZN</button>
+                 <button id="cur-usd">USD</button>
+              </div>
+              </div>
+
+              <!-- Məbləğ -->
+              <div class="field">
+               <label>Məbləğ</label>
+                <div class="row">
+                 <input type="range" id="amountRange" min="300" max="300000" value="10000" class="range">
+                 <div class="value" id="amountVal">10 000 ₼</div>
+                </div>
+              </div>
+
+              <!-- Müddət -->
+                <div class="field">
+                 <label>Müddət</label>
+                  <div class="chips" id="termChips">
+                     <div class="chip" data-months="3">3</div>
+                     <div class="chip active" data-months="6">6</div>
+                     <div class="chip" data-months="12">12</div>
+                     <div class="chip" data-months="18">18</div>
+                     <div class="chip" data-months="24">24</div>
+                     <div class="chip" data-months="36">36</div>
+                  </div>
+                </div>
+
+              <!-- Avtobomil üçün -->
+                
+              <div class="field" id="carFields">
+                  <label>Avtomobilin qiyməti</label>
+                  <div class="row">
+                    <input type="range" id="carPriceRange" min="300" max="500000" value="50000">
+                    <div class="value" id="carPriceVal">50 000 ₼</div>
+                  </div>
+
+
+                 <label style="margin-top:12px">İlkin ödəniş (%)</label>
+                  <div class="row">
+                     <input type="range" id="downRange" min="0" max="90" value="20">
+                     <div class="value" id="downVal">20 %</div>
+                  </div>
+
+
+                 <label style="margin-top:12px">İllik faiz (%)</label>
+                  <div class="row">
+                     <input type="range" id="carRateRange" min="0" max="30" step="0.1" value="14.5">
+                     <div class="value" id="carRateVal">14.5 %</div>
+                  </div>
+
+
+                <label style="margin-top:12px">Müddət (ay)</label>
+                 <div class="row">
+                    <input type="range" id="carTermRange" min="6" max="84" value="24">
+                    <div class="value" id="carTermVal">24 ay</div>
+                 </div>
+                
+                </div>
+
+              <!-- Nəticə card -->
+              <div class="result-wrap">
+                <div class="result-card" id="resultCard">
+                <h2 id="resultTitle">Aylıq kredit ödənişi</h2>
+                 <div class="big" id="bigVal">1 929.98 ₼</div>
+             <div class="meta">
+                <div class="item">
+                  <div class="label">Kredit məbləği</div>
+                  <div class="val" id="loanVal">40 000 ₼</div>
+                </div>
+                <div class="item">
+                  <div class="label">İllik faiz dərəcəsi</div>
+                  <div class="val" id="rateVal">14.5 %</div>
+                </div>
+             </div> 
+
+
+             <div style="height:12px"></div>
+                <div class="meta">
+                  <div class="item">
+                    <div class="label">Komissiya</div>
+                    <div class="val" id="feeVal">2 000 ₼</div>
+                  </div>
+                  <div class="item">
+                    <div class="label">Ümumi ödəniş</div>
+                    <div class="val" id="totalVal">46 319.52 ₼</div>
+                  </div>
+                </div>
+
+              </div> 
+    </div>
+</div>
+
+
+        </div>
+      
+       <!--Main Part-->
+    </main>
+    <footer class="bg-zinc-800">
+      <div class="foot1">
+            <div class="logo flex mx-40">
+             <img class=" py-7" src="img/logo.png" alt="logo" />
+             <h1 class="text-center text-3xl font-bold  py-7 text-blue-700">ABB</h1>
+            </div>
+          <div class="tt">
+            <div class="contact flex-wrap mx-40">
+              <p class="text-white">Tel:</p>
+              <p class="text-white">+994 12 493 00 91</p>
+              <p class="text-white">E-poçt</p>
+              <p class="text-white">info@abb-bank.az</p>
+            </div>
+            <br/>
+            <div class="local flex-wrap mx-40 ">
+              <p class="text-white">Faks:</p>
+              <p class="text-white">+994 12 493 00 91</p>
+              <p class="text-white">Ünvan:</p>
+              <p class="text-white">67, Nizami küç., AZ1005 Bakı, Azərbaycan</p>
+            </div>
+           
+
+          </div>
+      </div>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>
